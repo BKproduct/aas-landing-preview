@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-booking-url="https://calendly.com/dmir017">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Automation Studio — Automate routine work. Focus on growth.</title>
+    <meta
+      name="description"
+      content="Practical AI and workflow automation for SMBs. Scoped pilots in weeks — no-code and low-code first."
+    />
+    <style>
+      :root {
+        --parchment: #f5f4ed;
+        --ivory: #faf9f5;
+        --terracotta: #c96442;
+        --coral: #d97757;
+        --near: #141413;
+        --olive: #5e5d59;
+        --stone: #87867f;
+        --charcoal: #4d4c48;
+        --sand: #e8e6dc;
+        --dark: #30302e;
+        --cream: #f0eee6;
+        --ring: #d1cfc5;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .hero-video {
+          display: none !important;
+        }
+        .hero-static {
+          display: block !important;
+        }
+        .hero-ambient {
+          animation: none !important;
+        }
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: var(--parchment);
+        color: var(--near);
+        line-height: 1.6;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 500;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 72rem;
+        margin: 0 auto;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        border-bottom: 1px solid rgba(240, 238, 230, 0.85);
+        background: rgba(245, 244, 237, 0.92);
+        backdrop-filter: blur(10px);
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 1rem 0;
+      }
+      .logo {
+        height: 2.5rem;
+        width: auto;
+        display: block;
+      }
+      nav {
+        display: none;
+        gap: 1.5rem;
+        font-size: 0.875rem;
+        color: var(--olive);
+      }
+      @media (min-width: 768px) {
+        nav {
+          display: flex;
+        }
+      }
+      nav a:hover {
+        color: var(--near);
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+        background: var(--terracotta);
+        color: var(--ivory);
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        box-shadow: 0 0 0 1px var(--ring);
+      }
+      .btn-primary:hover {
+        background: var(--coral);
+      }
+      .hero {
+        position: relative;
+        min-height: 88vh;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .hero-media {
+        position: absolute;
+        inset: 0;
+        background: var(--parchment);
+      }
+      .hero-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero-static {
+        display: none;
+        position: absolute;
+        inset: 0;
+        background: url("./hero-poster.jpg") center / cover no-repeat;
+      }
+      .hero-ambient {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at 30% 20%,
+            rgba(201, 100, 66, 0.12),
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at 70% 80%,
+            rgba(62, 61, 58, 0.08),
+            transparent 40%
+          );
+        animation: heroDrift 24s ease-in-out infinite alternate;
+      }
+      @keyframes heroDrift {
+        from {
+          transform: scale(1) translate(0, 0);
+        }
+        to {
+          transform: scale(1.04) translate(-1%, 1%);
+        }
+      }
+      .hero-scrim {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(245, 244, 237, 0.88),
+          rgba(245, 244, 237, 0.55),
+          var(--parchment)
+        );
+      }
+      .hero-inner {
+        position: relative;
+        max-width: 56rem;
+        margin: 0 auto;
+        padding: 7rem 1.25rem 6rem;
+        text-align: center;
+      }
+      @media (min-width: 768px) {
+        .hero-inner {
+          padding-top: 9rem;
+        }
+      }
+      .eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--stone);
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      .hero h1 {
+        font-size: clamp(2.25rem, 5vw, 3.75rem);
+        line-height: 1.1;
+        margin: 0;
+        text-wrap: balance;
+      }
+      .hero p.lead {
+        margin: 1.5rem auto 0;
+        max-width: 42rem;
+        font-size: 1.125rem;
+        color: var(--olive);
+        text-wrap: balance;
+      }
+      .hero-actions {
+        margin-top: 2.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+      .btn-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 0.75rem;
+      }
+      .btn-secondary {
+        border: 1px solid var(--cream);
+        background: rgba(250, 249, 245, 0.85);
+        color: var(--charcoal);
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 0.75rem;
+        font-weight: 500;
+        box-shadow: 0 1px 2px rgba(20, 20, 19, 0.06);
+      }
+      .btn-secondary:hover {
+        box-shadow: 0 0 0 1px var(--ring);
+      }
+      .note {
+        margin-top: 1.5rem;
+        font-size: 0.8125rem;
+        color: var(--stone);
+        max-width: 36rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      section {
+        padding: 5rem 0;
+      }
+      .section-muted {
+        border-top: 1px solid var(--cream);
+        background: rgba(250, 249, 245, 0.65);
+      }
+      .section-band {
+        border-top: 1px solid var(--cream);
+        border-bottom: 1px solid var(--cream);
+        background: rgba(250, 249, 245, 0.5);
+      }
+      .section h2 {
+        font-size: clamp(1.875rem, 3vw, 2.25rem);
+        margin: 0 0 2.5rem;
+      }
+      .grid-2 {
+        display: grid;
+        gap: 1.5rem;
+      }
+      @media (min-width: 768px) {
+        .grid-2 {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .card {
+        border-radius: 1rem;
+        border: 1px solid var(--cream);
+        background: var(--parchment);
+        padding: 1.5rem;
+        box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
+        color: var(--olive);
+      }
+      .services-intro {
+        max-width: 48rem;
+        font-size: 1.125rem;
+        color: var(--olive);
+        margin-bottom: 2.5rem;
+      }
+      .tags {
+        display: grid;
+        gap: 0.75rem;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 640px) {
+        .tags {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 1024px) {
+        .tags {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .tag {
+        border-radius: 0.75rem;
+        border: 1px solid var(--cream);
+        background: rgba(250, 249, 245, 0.85);
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--charcoal);
+      }
+      .callout {
+        margin-top: 2rem;
+        border-radius: 1rem;
+        border: 1px solid var(--cream);
+        background: var(--parchment);
+        padding: 1.5rem;
+        font-size: 0.875rem;
+        color: var(--olive);
+      }
+      .steps {
+        list-style: none;
+        padding: 0;
+        margin: 2.5rem 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .step {
+        display: flex;
+        gap: 1rem;
+        border-radius: 1rem;
+        border: 1px solid var(--cream);
+        background: rgba(250, 249, 245, 0.75);
+        padding: 1.5rem;
+      }
+      .step-num {
+        font-family: Georgia, serif;
+        font-size: 1.5rem;
+        color: var(--terracotta);
+      }
+      .tools {
+        border-top: 1px solid var(--cream);
+        background: var(--parchment);
+        padding: 4rem 0;
+      }
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      .pill {
+        border-radius: 999px;
+        border: 1px solid var(--cream);
+        background: var(--ivory);
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--charcoal);
+      }
+      .faq-item {
+        border-radius: 1rem;
+        border: 1px solid var(--cream);
+        background: rgba(250, 249, 245, 0.75);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .faq-item h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.125rem;
+      }
+      .contact {
+        border-top: 1px solid var(--cream);
+        background: rgba(250, 249, 245, 0.45);
+        padding: 6rem 0;
+      }
+      .contact-grid {
+        display: grid;
+        gap: 3rem;
+      }
+      @media (min-width: 1024px) {
+        .contact-grid {
+          grid-template-columns: 1fr 1fr;
+          align-items: start;
+        }
+      }
+      form {
+        border-radius: 1rem;
+        border: 1px solid var(--cream);
+        background: rgba(250, 249, 245, 0.92);
+        padding: 1.5rem;
+        box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
+      }
+      label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--charcoal);
+        margin-bottom: 0.25rem;
+      }
+      input,
+      textarea {
+        width: 100%;
+        margin-top: 0.25rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--cream);
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+      }
+      input:focus,
+      textarea:focus {
+        outline: 2px solid #3898ec;
+        outline-offset: 0;
+      }
+      .form-footer {
+        font-size: 0.75rem;
+        color: var(--stone);
+        margin: 0.5rem 0 1rem;
+      }
+      button[type="submit"] {
+        width: 100%;
+        border: 0;
+        border-radius: 0.75rem;
+        background: var(--dark);
+        color: var(--ivory);
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      button[type="submit"]:hover {
+        background: var(--near);
+      }
+      footer {
+        border-top: 1px solid var(--cream);
+        background: var(--dark);
+        color: var(--ivory);
+        padding: 3.5rem 0 0;
+      }
+      .footer-grid {
+        display: grid;
+        gap: 2.5rem;
+      }
+      @media (min-width: 768px) {
+        .footer-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .footer-logo {
+        height: 2.25rem;
+        width: auto;
+        border-radius: 0.375rem;
+        background: var(--ivory);
+        padding: 0.25rem;
+      }
+      .footer-muted {
+        color: var(--stone);
+        font-size: 0.875rem;
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 2.5rem;
+        padding: 1.5rem 0;
+        text-align: center;
+        font-size: 0.75rem;
+        color: var(--stone);
+      }
+      code {
+        font-size: 0.75rem;
+        background: var(--sand);
+        padding: 0.125rem 0.35rem;
+        border-radius: 0.25rem;
+        color: var(--charcoal);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap header-inner">
+        <a href="#top" aria-label="Home"
+          ><img
+            class="logo"
+            src="./logo.jpg"
+            width="160"
+            height="48"
+            alt="AI Automation Studio"
+        /></a>
+        <nav aria-label="Primary">
+          <a href="#problem">Challenges</a>
+          <a href="#services">What we do</a>
+          <a href="#process">Process</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="btn-primary" href="#contact">Book a call</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Hero">
+        <div class="hero-media" aria-hidden="true">
+          <div class="hero-ambient" aria-hidden="true"></div>
+          <video
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="./hero-poster.jpg"
+            preload="metadata"
+          >
+            <source src="./hero-loop.mp4" type="video/mp4" />
+          </video>
+          <div class="hero-static" aria-hidden="true"></div>
+          <div class="hero-scrim"></div>
+        </div>
+        <div class="hero-inner">
+          <p class="eyebrow">Fractional CAIO for SMBs</p>
+          <h1>Automate routine work. Focus on growth.</h1>
+          <p class="lead">
+            Practical AI and workflow automation for SMBs — scoped pilots in
+            weeks, not quarters. No dev team required to start.
+          </p>
+          <div class="hero-actions">
+            <a id="booking-hero" class="btn-primary btn-lg" href="#contact"
+              >Book a 20-minute call</a
+            >
+            <a class="btn-secondary" href="#process">How we work</a>
+          </div>
+          <p class="note">
+            Replace <code>hero-loop.mp4</code> with your Seedance loop when
+            ready. Optional: set
+            <code>data-booking-url</code> on <code>&lt;html&gt;</code> to your
+            Cal.com / Calendly link (see script at bottom).
+          </p>
+        </div>
+      </section>
+
+      <section id="problem" class="section-muted">
+        <div class="wrap">
+          <h2>Sound familiar?</h2>
+          <div class="grid-2">
+            <div class="card">
+              Manual follow-up and copy-paste between tools
+            </div>
+            <div class="card">Leads and ops living in one person's head</div>
+            <div class="card">
+              "AI tools" bought but never wired into how the team works
+            </div>
+            <div class="card">
+              Long agency timelines when you need something working next week
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="wrap">
+          <h2>What we automate</h2>
+          <p class="services-intro">
+            We design and implement workflows across email, CRM, messengers,
+            spreadsheets, and APIs — no-code and low-code first, code when it
+            earns its place.
+          </p>
+          <div class="tags">
+            <div class="tag">Email automation</div>
+            <div class="tag">Data collection &amp; monitoring</div>
+            <div class="tag">CRM integration</div>
+            <div class="tag">Workflow automation</div>
+            <div class="tag">API integrations</div>
+            <div class="tag">Chatbots &amp; assistants</div>
+            <div class="tag">Reporting</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band">
+        <div class="wrap">
+          <h2>A clear method, not magic</h2>
+          <p class="services-intro">
+            We start with a short discovery call, map the real process, then
+            ship a working pilot you can see in your own tools. Public case
+            studies and logos are used only where we have permission — until
+            then, we show the method, timelines, and anonymised examples.
+          </p>
+          <div class="callout">
+            <p style="margin: 0 0 0.75rem; font-weight: 600; color: var(--charcoal)">
+              What you typically get in 2–4 weeks
+            </p>
+            <ul style="margin: 0; padding-left: 1.25rem">
+              <li>Process map + tool choices agreed with your team</li>
+              <li>Working pilot automation with basic monitoring</li>
+              <li>Handover notes and a short live walkthrough</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="process">
+        <div class="wrap">
+          <h2>How it works</h2>
+          <ol class="steps">
+            <li class="step">
+              <span class="step-num">1</span>
+              <div>
+                <h3 style="margin: 0 0 0.5rem; font-size: 1.25rem">
+                  Discovery (~20 min)
+                </h3>
+                <p style="margin: 0; color: var(--olive)">
+                  Pain points, systems, constraints — no fluff.
+                </p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-num">2</span>
+              <div>
+                <h3 style="margin: 0 0 0.5rem; font-size: 1.25rem">
+                  Audit &amp; proposal
+                </h3>
+                <p style="margin: 0; color: var(--olive)">
+                  Scope, tools, handover — clear acceptance criteria.
+                </p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-num">3</span>
+              <div>
+                <h3 style="margin: 0 0 0.5rem; font-size: 1.25rem">Build</h3>
+                <p style="margin: 0; color: var(--olive)">
+                  Automation in your stack (n8n, Make, Zapier, APIs).
+                </p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-num">4</span>
+              <div>
+                <h3 style="margin: 0 0 0.5rem; font-size: 1.25rem">Handover</h3>
+                <p style="margin: 0; color: var(--olive)">
+                  You own it; we train the team on what we shipped.
+                </p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-num">5</span>
+              <div>
+                <h3 style="margin: 0 0 0.5rem; font-size: 1.25rem">
+                  Support (optional)
+                </h3>
+                <p style="margin: 0; color: var(--olive)">
+                  Retainer when you want us on speed dial.
+                </p>
+              </div>
+            </li>
+          </ol>
+          <p style="margin-top: 2.5rem">
+            <a class="btn-primary btn-lg" href="#contact"
+              >Start with a discovery call</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="tools">
+        <div class="wrap">
+          <h2 style="font-size: 1.5rem">Proven tooling</h2>
+          <div class="pill-row" style="margin-top: 1.5rem">
+            <span class="pill">n8n</span>
+            <span class="pill">Make</span>
+            <span class="pill">Zapier</span>
+            <span class="pill">Anthropic</span>
+            <span class="pill">OpenAI</span>
+            <span class="pill">Python</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="wrap">
+          <h2>FAQ</h2>
+          <div class="faq-item">
+            <h3>DIY stack vs working with you?</h3>
+            <p style="margin: 0; color: var(--olive)">
+              ChatGPT plus ad-hoc Zaps gets you experiments. We deliver owned
+              workflows with monitoring, documentation, and clear handover —
+              so the automation survives Monday morning.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>How do you handle data access?</h3>
+            <p style="margin: 0; color: var(--olive)">
+              We work with the access you grant; secrets never belong in git.
+              We can start read-only where that makes sense for your risk
+              posture.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>What about AI regulation?</h3>
+            <p style="margin: 0; color: var(--olive)">
+              You remain the deployer for your domain. We help implement
+              controls proportionate to risk — we do not offer legal
+              certification.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="wrap contact-grid">
+          <div>
+            <h2>Ready for a pilot?</h2>
+            <p class="services-intro" style="margin-top: 1rem">
+              Book a short call — practical scoping, not a slide-deck sales
+              pitch.
+            </p>
+            <p class="note" style="text-align: left; margin: 1.5rem 0 0">
+              Typical pilot and project fees often fall in the
+              <strong>£3,000–£15,000</strong> range depending on scope — final
+              numbers only after discovery.
+            </p>
+            <p style="margin-top: 2rem; font-size: 0.875rem; color: var(--olive)">
+              <strong style="color: var(--charcoal)">Email:</strong>
+              <a
+                style="text-decoration: underline"
+                href="mailto:boris.korol@ai-automation.studio"
+                >boris.korol@ai-automation.studio</a
+              >
+            </p>
+            <p style="margin-top: 1rem">
+              <a
+                id="booking-contact"
+                class="btn-primary"
+                style="background: var(--dark); box-shadow: none"
+                href="#contact"
+                >Open booking calendar</a
+              >
+            </p>
+          </div>
+          <form id="enquiry-form" novalidate>
+            <div style="margin-bottom: 1rem">
+              <label for="name">Name <span style="color: var(--terracotta)">*</span></label>
+              <input id="name" name="name" required autocomplete="name" />
+            </div>
+            <div style="margin-bottom: 1rem">
+              <label for="email"
+                >Work email <span style="color: var(--terracotta)">*</span></label
+              >
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+              />
+            </div>
+            <div style="margin-bottom: 1rem">
+              <label for="company">Company</label>
+              <input id="company" name="company" autocomplete="organization" />
+            </div>
+            <div style="margin-bottom: 1rem">
+              <label for="message"
+                >What should we automate?
+                <span style="color: var(--terracotta)">*</span></label
+              >
+              <textarea id="message" name="message" required rows="4"></textarea>
+            </div>
+            <p class="form-footer">
+              We use your details only to reply to this enquiry.
+            </p>
+            <button type="submit">Send message</button>
+            <p
+              id="form-status"
+              style="display: none; margin-top: 1rem; font-size: 0.875rem; color: var(--olive); text-align: center"
+              role="status"
+            ></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-grid">
+        <div>
+          <img
+            class="footer-logo"
+            src="./logo.jpg"
+            width="160"
+            height="48"
+            alt=""
+          />
+          <p class="footer-muted" style="margin-top: 1rem">
+            Practical automation for teams who need outcomes, not slide decks.
+          </p>
+        </div>
+        <div>
+          <p
+            class="footer-muted"
+            style="font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em"
+          >
+            On this page
+          </p>
+          <ul
+            class="footer-muted"
+            style="list-style: none; padding: 0; margin: 0.75rem 0 0; line-height: 1.8"
+          >
+            <li><a style="text-decoration: underline" href="#services">What we do</a></li>
+            <li><a style="text-decoration: underline" href="#process">Process</a></li>
+            <li><a style="text-decoration: underline" href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <p
+            class="footer-muted"
+            style="font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em"
+          >
+            Contact
+          </p>
+          <p style="margin: 0.75rem 0 0; font-size: 0.875rem">
+            <a
+              style="text-decoration: underline"
+              href="mailto:boris.korol@ai-automation.studio"
+              >boris.korol@ai-automation.studio</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © <span id="y"></span> AI-Automation.Studio
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("y").textContent = String(new Date().getFullYear());
+      var booking = document.documentElement.getAttribute("data-booking-url");
+      if (booking) {
+        var b1 = document.getElementById("booking-hero");
+        var b2 = document.getElementById("booking-contact");
+        if (b1) b1.setAttribute("href", booking);
+        if (b2) b2.setAttribute("href", booking);
+      }
+      document.getElementById("enquiry-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var fd = new FormData(e.target);
+        var name = String(fd.get("name") || "").trim();
+        var from = String(fd.get("email") || "").trim();
+        var company = String(fd.get("company") || "").trim();
+        var body = String(fd.get("message") || "").trim();
+        var subject = encodeURIComponent(
+          "AI Automation Studio — enquiry from " + (name || "site")
+        );
+        var text = encodeURIComponent(
+          ["Name: " + name, "Email: " + from, company ? "Company: " + company : "", "", body]
+            .filter(Boolean)
+            .join("\n")
+        );
+        window.location.href =
+          "mailto:boris.korol@ai-automation.studio?subject=" + subject + "&body=" + text;
+        var st = document.getElementById("form-status");
+        st.style.display = "block";
+        st.textContent =
+          "If your mail client did not open, email boris.korol@ai-automation.studio directly.";
+      });
+    </script>
+  </body>
+</html>
