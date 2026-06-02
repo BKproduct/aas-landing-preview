@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Персональное предложение — AI Automation Studio × Олеся Волкова</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sp-paper:   #FAFAF7;
+  --sp-ink:     #0A0A0A;
+  --sp-accent:  #FF3D2E;
+  --sp-muted:   #6B6B68;
+  --sp-rule:    #E5E4DE;
+  --sp-card:    #F3F2EE;
+  --sp-green:   #1FB95B;
+  --font: 'Inter', -apple-system, system-ui, sans-serif;
+  --max: 860px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--sp-paper); color: var(--sp-ink); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+/* Header */
+header { border-bottom: 1px solid var(--sp-rule); padding: 20px 0; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; }
+.logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--sp-ink); }
+.logo-wordmark { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sp-muted); }
+.header-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sp-muted); border: 1px solid var(--sp-rule); padding: 4px 10px; border-radius: 20px; }
+
+/* Hero */
+.hero { padding: 80px 0 64px; border-bottom: 1px solid var(--sp-rule); }
+.hero-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sp-accent); margin-bottom: 20px; }
+.hero h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; max-width: 640px; margin-bottom: 24px; }
+.hero-sub { font-size: 17px; color: var(--sp-muted); max-width: 520px; line-height: 1.65; margin-bottom: 40px; }
+.hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+.stat { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 28px; font-weight: 800; letter-spacing: -0.04em; color: var(--sp-ink); }
+.stat-label { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sp-muted); }
+
+/* Quote strip */
+.quote-strip { background: var(--sp-ink); color: var(--sp-paper); padding: 36px 0; }
+.quote-inner { display: flex; align-items: flex-start; gap: 20px; }
+.quote-mark { font-size: 48px; font-weight: 800; color: var(--sp-accent); line-height: 1; flex-shrink: 0; margin-top: -8px; }
+.quote-text { font-size: 16px; line-height: 1.65; font-style: italic; color: rgba(250,250,247,0.9); }
+.quote-attr { margin-top: 10px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(250,250,247,0.45); }
+
+/* Section labels */
+.section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sp-muted); margin-bottom: 8px; }
+.section-title { font-size: clamp(22px, 3vw, 30px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.2; margin-bottom: 12px; }
+.section-sub { font-size: 15px; color: var(--sp-muted); max-width: 540px; line-height: 1.65; }
+
+/* Pain points */
+.pain { padding: 72px 0; border-bottom: 1px solid var(--sp-rule); }
+.pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px; }
+@media (max-width: 600px) { .pain-grid { grid-template-columns: 1fr; } }
+.pain-card { background: var(--sp-card); border-radius: 10px; padding: 28px 24px; }
+.pain-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--sp-accent); margin-bottom: 12px; }
+.pain-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+.pain-body { font-size: 13.5px; color: var(--sp-muted); line-height: 1.65; }
+
+/* Modules */
+.modules { padding: 72px 0; border-bottom: 1px solid var(--sp-rule); }
+.modules-header { margin-bottom: 48px; }
+.phase-label { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sp-muted); background: var(--sp-card); padding: 4px 12px; border-radius: 20px; margin-bottom: 32px; }
+.phase-label .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sp-accent); }
+.modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; background: var(--sp-rule); border: 1px solid var(--sp-rule); border-radius: 12px; overflow: hidden; margin-bottom: 48px; }
+.module-card { background: var(--sp-paper); padding: 32px 28px; }
+.module-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--sp-accent); margin-bottom: 16px; }
+.module-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--sp-ink); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.module-icon svg { width: 18px; height: 18px; }
+.module-name { font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px; }
+.module-desc { font-size: 13.5px; color: var(--sp-muted); line-height: 1.65; margin-bottom: 20px; }
+.module-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.module-bullets li { font-size: 12.5px; color: var(--sp-ink); padding-left: 16px; position: relative; line-height: 1.5; }
+.module-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--sp-accent); font-size: 11px; top: 1px; }
+.module-badge { display: inline-flex; align-items: center; gap: 5px; margin-top: 20px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; color: var(--sp-green); }
+.module-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sp-green); flex-shrink: 0; }
+
+/* Phase B modules */
+.modules-grid-b { background: var(--sp-ink); border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; }
+.module-card-b { background: #141412; padding: 32px 28px; }
+.module-card-b .module-icon { background: #2A2A28; }
+.module-card-b .module-name { color: #FAFAF7; }
+.module-card-b .module-desc { color: rgba(250,250,247,0.5); }
+.module-card-b .module-bullets li { color: rgba(250,250,247,0.8); }
+.module-card-b .module-bullets li::before { color: var(--sp-accent); }
+
+/* Timeline */
+.timeline { padding: 72px 0; border-bottom: 1px solid var(--sp-rule); }
+.timeline-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 48px; position: relative; }
+.timeline-row::before { content: ''; position: absolute; top: 20px; left: 12.5%; right: 12.5%; height: 1px; background: var(--sp-rule); z-index: 0; }
+@media (max-width: 680px) { .timeline-row { grid-template-columns: 1fr 1fr; } .timeline-row::before { display: none; } }
+.timeline-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; position: relative; z-index: 1; }
+.timeline-dot { width: 40px; height: 40px; border-radius: 50%; background: var(--sp-paper); border: 1px solid var(--sp-rule); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--sp-muted); margin-bottom: 16px; }
+.timeline-dot.active { background: var(--sp-ink); color: var(--sp-paper); border-color: var(--sp-ink); }
+.timeline-dot.phase-b { background: var(--sp-accent); color: #fff; border-color: var(--sp-accent); }
+.timeline-week { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sp-accent); margin-bottom: 6px; }
+.timeline-step-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.timeline-step-body { font-size: 12px; color: var(--sp-muted); line-height: 1.5; }
+.timeline-effort { margin-top: 40px; background: var(--sp-card); border-radius: 10px; padding: 20px 28px; display: flex; gap: 48px; flex-wrap: wrap; }
+.effort-item { display: flex; flex-direction: column; gap: 2px; }
+.effort-num { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; }
+.effort-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--sp-muted); }
+
+/* Security */
+.security-band { background: var(--sp-ink); padding: 48px 0; }
+.security-inner { display: flex; align-items: flex-start; gap: 32px; }
+@media (max-width: 600px) { .security-inner { flex-direction: column; } }
+.security-icon { flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px; border: 1px solid rgba(250,250,247,0.15); display: flex; align-items: center; justify-content: center; }
+.security-content { flex: 1; }
+.security-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sp-green); margin-bottom: 12px; }
+.security-title { font-size: clamp(18px, 2.5vw, 24px); font-weight: 800; color: #FAFAF7; letter-spacing: -0.02em; margin-bottom: 12px; }
+.security-body { font-size: 14px; color: rgba(250,250,247,0.55); line-height: 1.65; max-width: 560px; }
+.security-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+.security-pill { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; color: rgba(250,250,247,0.5); border: 1px solid rgba(250,250,247,0.12); padding: 4px 12px; border-radius: 4px; }
+.security-pill.ok { color: var(--sp-green); border-color: rgba(31,185,91,0.3); }
+
+/* Pricing */
+.pricing { padding: 72px 0; border-bottom: 1px solid var(--sp-rule); }
+.pricing-header { margin-bottom: 48px; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 680px) { .pricing-grid { grid-template-columns: 1fr; } }
+.plan { border: 1px solid var(--sp-rule); border-radius: 12px; padding: 28px 24px 32px; display: flex; flex-direction: column; position: relative; background: var(--sp-paper); }
+.plan.featured { border-color: var(--sp-ink); background: var(--sp-ink); color: var(--sp-paper); }
+.plan-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--sp-accent); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
+.plan-name { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; color: var(--sp-muted); }
+.plan.featured .plan-name { color: rgba(250,250,247,0.5); }
+.plan-price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 6px; }
+.plan-amount { font-size: 36px; font-weight: 800; letter-spacing: -0.04em; }
+.plan-per { font-size: 12px; font-weight: 500; color: var(--sp-muted); }
+.plan.featured .plan-per { color: rgba(250,250,247,0.45); }
+.plan-note { font-size: 11.5px; color: var(--sp-muted); margin-bottom: 28px; line-height: 1.5; }
+.plan.featured .plan-note { color: rgba(250,250,247,0.45); }
+.plan-divider { border: none; border-top: 1px solid var(--sp-rule); margin-bottom: 24px; }
+.plan.featured .plan-divider { border-color: rgba(250,250,247,0.12); }
+.plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.plan-features li { font-size: 13px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
+.plan-features .check { color: var(--sp-green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.plan.featured .plan-features li { color: rgba(250,250,247,0.85); }
+.plan-cta { margin-top: 28px; display: block; text-align: center; text-decoration: none; font-size: 13px; font-weight: 600; padding: 12px 20px; border-radius: 8px; border: 1px solid var(--sp-rule); color: var(--sp-ink); background: transparent; transition: background 0.15s, border-color 0.15s; cursor: pointer; }
+.plan-cta:hover { background: var(--sp-card); border-color: var(--sp-muted); }
+.plan.featured .plan-cta { background: var(--sp-accent); border-color: var(--sp-accent); color: #fff; }
+.plan.featured .plan-cta:hover { background: #e63527; border-color: #e63527; }
+.pricing-note { margin-top: 24px; font-size: 12.5px; color: var(--sp-muted); display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+.pricing-note-item { display: flex; align-items: center; gap: 6px; }
+.pricing-note-item::before { content: '✓'; color: var(--sp-green); font-weight: 700; font-size: 12px; }
+
+/* CTA */
+.cta-section { padding: 80px 0; }
+.cta-box { background: var(--sp-ink); border-radius: 16px; padding: 56px 48px; text-align: center; color: var(--sp-paper); }
+@media (max-width: 600px) { .cta-box { padding: 40px 28px; } }
+.cta-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,250,247,0.4); margin-bottom: 16px; }
+.cta-title { font-size: clamp(24px, 4vw, 36px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+.cta-sub { font-size: 15px; color: rgba(250,250,247,0.55); margin-bottom: 36px; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.65; }
+.cta-btn { display: inline-block; text-decoration: none; background: var(--sp-accent); color: #fff; font-size: 14px; font-weight: 700; letter-spacing: 0.02em; padding: 14px 32px; border-radius: 8px; transition: background 0.15s; }
+.cta-btn:hover { background: #e63527; }
+.cta-contacts { margin-top: 28px; display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+.cta-contact { font-size: 12.5px; color: rgba(250,250,247,0.4); }
+.cta-contact a { color: rgba(250,250,247,0.65); text-decoration: none; }
+.cta-contact a:hover { color: var(--sp-paper); }
+
+/* Footer */
+footer { border-top: 1px solid var(--sp-rule); padding: 28px 0; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.footer-copy { font-size: 12px; color: var(--sp-muted); }
+.footer-link { font-size: 12px; color: var(--sp-muted); text-decoration: none; }
+.footer-link:hover { color: var(--sp-ink); }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <a class="logo-wrap" href="https://ai-automation.studio">
+        <svg width="28" height="28" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="34" height="34" rx="9" fill="#0A0A0A"/>
+          <circle cx="17" cy="17" r="7" stroke="#ffffff" stroke-width="1.8" fill="none"/>
+          <path d="M17 10.5V7M17 27v-3.5M10.5 17H7M27 17h-3.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="17" cy="17" r="2.8" fill="#1FB95B"/>
+        </svg>
+        <span class="logo-wordmark">AI Automation Studio</span>
+      </a>
+      <span class="header-tag">Персональное предложение · Июнь 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-kicker">Олеся Волкова — персональный AI-стек</div>
+    <h1>Ассистент, который знает<br>все ваши проекты.</h1>
+    <p class="hero-sub">
+      Винодельня в Италии, инвестиционные сделки, операционка — один AI разбирает данные, готовит выводы и берёт рутину на себя. Данные остаются у вас.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">−3 ч</span>
+        <span class="stat-label">экономия в день</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">×4</span>
+        <span class="stat-label">быстрее аналитика</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">£1,200</span>
+        <span class="stat-label">старт / 2 недели</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quote strip -->
+<div class="quote-strip">
+  <div class="container">
+    <div class="quote-inner">
+      <span class="quote-mark">"</span>
+      <div>
+        <p class="quote-text">Мне нужен помощник, который проанализирует все данные и сделает для меня выводы, а я потрачу время только на принятие управленческого решения.</p>
+        <p class="quote-attr">— Олеся Волкова, из нашей встречи</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pain points -->
+<section class="pain">
+  <div class="container">
+    <p class="section-label">Сегодня</p>
+    <h2 class="section-title">Четыре узких места</h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-num">01</div>
+        <div class="pain-title">Данные разбросаны</div>
+        <div class="pain-body">iCloud, Apple Notes, бумага — нет единой системы. На поиск уходит время, которого и так нет.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">02</div>
+        <div class="pain-title">Задачи теряются</div>
+        <div class="pain-body">WhatsApp, Telegram, почта — поручения приходят отовсюду, но нигде не трекаются. Дедлайны уходят.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">03</div>
+        <div class="pain-title">Аналитика вручную</div>
+        <div class="pain-body">Excel-файлы по виноделям и сделкам обрабатываются без AI. Часы уходят туда, где должно быть 10 минут.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">04</div>
+        <div class="pain-title">Рутина съедает 3+ ч/день</div>
+        <div class="pain-body">Письма, билеты, напоминания — всё сама. Без ассистента рядом снова приходится делать это руками.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modules -->
+<section class="modules">
+  <div class="container">
+    <div class="modules-header">
+      <p class="section-label">Решение</p>
+      <h2 class="section-title">Два этапа — семь недель</h2>
+      <p class="section-sub">Начинаем с простого: AI поверх ваших привычных инструментов. Затем — автоматизация рутины.</p>
+    </div>
+
+    <!-- Phase A -->
+    <div class="phase-label"><span class="dot"></span>Фаза A — Недели 1–2 · Claude Max + Cowork</div>
+    <div class="modules-grid">
+      <div class="module-card">
+        <div class="module-num">01</div>
+        <div class="module-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </div>
+        <div class="module-name">Рукопись → Структура</div>
+        <div class="module-desc">Фото заметки или голосовое в Telegram — готовый документ, письмо или поручение.</div>
+        <ul class="module-bullets">
+          <li>Рукописная схема → структурированный текст</li>
+          <li>Голос на русском и английском вперемешку</li>
+          <li>Черновик письма за 30 секунд</li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-num">02</div>
+        <div class="module-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/>
+          </svg>
+        </div>
+        <div class="module-name">AI-аналитик виноделен</div>
+        <div class="module-desc">Excel с данными виноделен → финансовый анализ, сценарии, инвест-выводы за 3 минуты.</div>
+        <ul class="module-bullets">
+          <li>Когда первая выручка и при каких условиях</li>
+          <li>Сравнение с аналогами в регионе DOC/DOCG</li>
+          <li>Сценарии: пессимист / база / оптимист</li>
+          <li>Слайд-резюме для стейкхолдеров</li>
+        </ul>
+        <span class="module-badge">×4 быстрее, чем вручную</span>
+      </div>
+      <div class="module-card">
+        <div class="module-num">03</div>
+        <div class="module-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        </div>
+        <div class="module-name">Projects с памятью</div>
+        <div class="module-desc">Три отдельных контекста: Винодельня, Инвестпроекты, Операционка. Не объяснять заново каждый раз.</div>
+        <ul class="module-bullets">
+          <li>Контекст сохраняется между сессиями</li>
+          <li>Анализ PDF, Excel, PPT из iCloud</li>
+          <li>5 рисков + 3 рекомендации по любому документу</li>
+        </ul>
+        <span class="module-badge">Настраивает консультант</span>
+      </div>
+      <div class="module-card">
+        <div class="module-num">04</div>
+        <div class="module-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <div class="module-name">Cowork на Mac</div>
+        <div class="module-desc">Прямой доступ к файлам iCloud с рабочего стола. Обрабатывает локально — файлы не уходят в облако Anthropic.</div>
+        <ul class="module-bullets">
+          <li>Читает Excel, PDF, PPT без загрузки</li>
+          <li>Готовые рецепты задач — один клик</li>
+          <li>iPhone: Shortcuts для частых запросов</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Phase B -->
+    <div class="phase-label" style="margin-top: 16px;"><span class="dot"></span>Фаза B — Недели 3–7 · Make.com + Telegram Bot</div>
+    <div class="modules-grid modules-grid-b">
+      <div class="module-card module-card-b">
+        <div class="module-num">05</div>
+        <div class="module-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+          </svg>
+        </div>
+        <div class="module-name">Захват задач</div>
+        <div class="module-desc">Telegram, WhatsApp, Gmail → задача автоматически в Apple Reminders с дедлайном.</div>
+        <ul class="module-bullets">
+          <li>Без ручного ввода в трекер</li>
+          <li>Фильтрует важные контакты</li>
+          <li>Дедлайн извлекается из текста</li>
+        </ul>
+      </div>
+      <div class="module-card module-card-b">
+        <div class="module-num">06</div>
+        <div class="module-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="module-name">Утренний брифинг</div>
+        <div class="module-desc">08:30 в Telegram: повестка дня, срочные письма, ToDo по всем проектам, новости по портфелю.</div>
+        <ul class="module-bullets">
+          <li>Не нужно ничего запрашивать</li>
+          <li>Пятничный свод по неделе</li>
+          <li>Флаг при важном письме от ключевого контакта</li>
+        </ul>
+        <span class="module-badge">Проактивно, без запроса</span>
+      </div>
+      <div class="module-card module-card-b">
+        <div class="module-num">07</div>
+        <div class="module-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91A16 16 0 0015.1 17.9l1.22-1.22a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <div class="module-name">Travel и PA</div>
+        <div class="module-desc">«Найди отель в Милане 25–27 июня, до £700» → три варианта с ценами за 2 минуты.</div>
+        <ul class="module-bullets">
+          <li>Отели, билеты, рестораны</li>
+          <li>Добавляет в Apple Calendar</li>
+          <li>Типовые письма по шаблону</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="timeline">
+  <div class="container">
+    <p class="section-label">Дорожная карта</p>
+    <h2 class="section-title">Семь недель — полная передача</h2>
+    <div class="timeline-row">
+      <div class="timeline-step">
+        <div class="timeline-dot active">1–2</div>
+        <div class="timeline-week">Фаза A</div>
+        <div class="timeline-step-title">Настройка ядра</div>
+        <div class="timeline-step-body">3 Projects, Cowork, шаблоны, онбординг 90 мин</div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot phase-b">3–4</div>
+        <div class="timeline-week">Фаза B</div>
+        <div class="timeline-step-title">Захват задач</div>
+        <div class="timeline-step-body">Make.com, Telegram Bot, Apple Reminders</div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot phase-b">5–6</div>
+        <div class="timeline-week">Фаза B</div>
+        <div class="timeline-step-title">Автоматизация</div>
+        <div class="timeline-step-body">Брифинги, Travel, интеграции Calendar + Mail</div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">7</div>
+        <div class="timeline-week">Финал</div>
+        <div class="timeline-step-title">Стабилизация</div>
+        <div class="timeline-step-body">Аудит, документация, передача управления</div>
+      </div>
+    </div>
+    <div class="timeline-effort">
+      <div class="effort-item">
+        <span class="effort-num">23 ч</span>
+        <span class="effort-label">Effort консультанта</span>
+      </div>
+      <div class="effort-item">
+        <span class="effort-num">3.5 ч</span>
+        <span class="effort-label">Effort Олеси</span>
+      </div>
+      <div class="effort-item">
+        <span class="effort-num">7 нед</span>
+        <span class="effort-label">До полной автоматизации</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Security -->
+<div class="security-band">
+  <div class="container">
+    <div class="security-inner">
+      <div class="security-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FAFAF7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div class="security-content">
+        <div class="security-kicker">Безопасность данных</div>
+        <div class="security-title">Файлы клиентов — только у вас</div>
+        <div class="security-body">Cowork читает файлы локально с вашего Mac. В облако Anthropic уходит только текст вашего запроса — не сами файлы. Для документов по сделкам третьих сторон можем настроить изолированную sandbox-зону с отдельным ключом шифрования.</div>
+        <div class="security-pills">
+          <span class="security-pill ok">iCloud — локальный доступ</span>
+          <span class="security-pill ok">Файлы не покидают Mac</span>
+          <span class="security-pill ok">NDA при контракте</span>
+          <span class="security-pill ok">DPA (GDPR) — controller/processor</span>
+          <span class="security-pill">Sandbox для сделок — опция</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pricing -->
+<section class="pricing">
+  <div class="container">
+    <div class="pricing-header">
+      <p class="section-label">Стоимость</p>
+      <h2 class="section-title">Начните с пилота</h2>
+      <p class="section-sub">Две недели — оцениваете результат. Без годовых обязательств.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="plan">
+        <div class="plan-name">Пилот · Фаза A</div>
+        <div class="plan-price">
+          <span class="plan-amount">£1,200</span>
+        </div>
+        <p class="plan-note">Единоразово · 2 недели</p>
+        <hr class="plan-divider">
+        <ul class="plan-features">
+          <li><span class="check">✓</span> 3 Projects с system prompts</li>
+          <li><span class="check">✓</span> Claude Cowork на Mac</li>
+          <li><span class="check">✓</span> Шаблоны для виноделен и AM</li>
+          <li><span class="check">✓</span> Онбординг 90 мин</li>
+          <li><span class="check">✓</span> Рецепты под ваши задачи</li>
+        </ul>
+        <a href="mailto:boris@ai-assistant.gg" class="plan-cta">Начать пилот</a>
+      </div>
+      <div class="plan featured">
+        <div class="plan-badge">Рекомендуем</div>
+        <div class="plan-name">Полное внедрение</div>
+        <div class="plan-price">
+          <span class="plan-amount">£3,400</span>
+        </div>
+        <p class="plan-note">Фаза A + Фаза B · 7 недель</p>
+        <hr class="plan-divider">
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Всё из пилота</li>
+          <li><span class="check">✓</span> Make.com автоматизации</li>
+          <li><span class="check">✓</span> Telegram Bot</li>
+          <li><span class="check">✓</span> Утренний брифинг 08:30</li>
+          <li><span class="check">✓</span> Travel + PA сценарии</li>
+          <li><span class="check">✓</span> Интеграция Apple Calendar</li>
+        </ul>
+        <a href="mailto:boris@ai-assistant.gg" class="plan-cta">Запустить полностью</a>
+      </div>
+      <div class="plan">
+        <div class="plan-name">Поддержка</div>
+        <div class="plan-price">
+          <span class="plan-amount">£350</span>
+          <span class="plan-per">/мес</span>
+        </div>
+        <p class="plan-note">После внедрения</p>
+        <hr class="plan-divider">
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Обновления промптов</li>
+          <li><span class="check">✓</span> 1 новая автоматизация / мес</li>
+          <li><span class="check">✓</span> Ответ до 24 часов</li>
+          <li><span class="check">✓</span> Новые модели Claude</li>
+        </ul>
+        <a href="mailto:boris@ai-assistant.gg" class="plan-cta">Подключить</a>
+      </div>
+    </div>
+    <div class="pricing-note">
+      <span class="pricing-note-item">Claude Max (~£100/мес) — прямая подписка</span>
+      <span class="pricing-note-item">Make.com (~£9/мес) — прямая подписка</span>
+      <span class="pricing-note-item">Без скрытых платежей</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box">
+      <div class="cta-kicker">Следующий шаг</div>
+      <div class="cta-title">Пилот — 2 недели.<br>Видите результат — продолжаем.</div>
+      <div class="cta-sub">Вы в Лондоне до 23 июня. Успеем запустить пилот до отъезда в Италию.</div>
+      <a href="mailto:boris@ai-assistant.gg?subject=Пилот — Олеся" class="cta-btn">Написать Борису</a>
+      <div class="cta-contacts">
+        <span class="cta-contact">Email: <a href="mailto:boris@ai-assistant.gg">boris@ai-assistant.gg</a></span>
+        <span class="cta-contact">Telegram: <a href="https://t.me/boriskorol">@boriskorol</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 AI Automation Studio · Подготовлено для Олеси Волковой</span>
+      <a href="https://ai-automation.studio" class="footer-link">ai-automation.studio</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
