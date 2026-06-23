@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We Reconciled 80,000 Bank Records Overnight. Here's the Exact Workflow — AI Automation Studio</title>
+<meta name="description" content="A UK accountancy practice had 80,000 bank records to reconcile each month. We automated the process using Make.com and the Xero API. Two days of manual work, reduced to a morning exceptions review.">
+<link rel="canonical" href="https://ai-automation.studio/case-studies/bank-reconciliation-workflow/">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivory:    #FAFAF7;
+  --parchment:#F3F2EE;
+  --cream:    #E5E4DE;
+  --sand:     #C8B89A;
+  --terracotta:#C0513A;
+  --near:     #0D0C0A;
+  --olive:    #5C5B55;
+  --stone:    #8C8B84;
+  --charcoal: #1C1B18;
+  --green:    #1A7A40;
+  --green-bg: #F0FFF4;
+  --green-bd: #BBDFCA;
+  --red-bg:   #FFF5F5;
+  --red-bd:   #F5C6C0;
+  --red-text: #9B3A2F;
+  --serif:    'Fraunces', Georgia, serif;
+  --sans:     'Inter', -apple-system, system-ui, sans-serif;
+  --max:      760px;
+  --max-wide: 1040px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--ivory); color: var(--charcoal); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+.site-header { border-bottom: 1px solid var(--cream); background: rgba(250,250,247,0.92); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 50; }
+.header-inner { max-width: var(--max-wide); margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo img { height: 36px; width: auto; }
+.header-cta { font-size: 13px; font-weight: 600; color: var(--terracotta); text-decoration: none; border: 1px solid var(--terracotta); border-radius: 6px; padding: 6px 14px; transition: background 0.15s, color 0.15s; }
+.header-cta:hover { background: var(--terracotta); color: white; }
+
+.breadcrumb { max-width: var(--max-wide); margin: 0 auto; padding: 16px 24px 0; }
+.breadcrumb a { font-size: 12px; color: var(--stone); text-decoration: none; }
+.breadcrumb a:hover { color: var(--terracotta); }
+.breadcrumb span { font-size: 12px; color: var(--stone); margin: 0 6px; }
+
+.article-hero { max-width: var(--max-wide); margin: 0 auto; padding: 40px 24px 48px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+@media (max-width: 768px) { .article-hero { grid-template-columns: 1fr; } }
+.hero-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 16px; }
+.hero-title { font-family: var(--serif); font-size: clamp(26px, 4vw, 40px); font-weight: 600; color: var(--near); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 20px; }
+.hero-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+.hero-meta-item { font-size: 12px; color: var(--stone); }
+.hero-meta-dot { color: var(--cream); }
+.hero-summary { font-size: 17px; color: var(--olive); line-height: 1.65; }
+
+.stat-panel { background: var(--parchment); border: 1px solid var(--cream); border-radius: 16px; padding: 28px 24px; }
+.stat-panel-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone); margin-bottom: 20px; }
+.stat-row { padding: 14px 0; border-top: 1px solid var(--cream); }
+.stat-row:first-of-type { border-top: none; padding-top: 0; }
+.stat-num { font-family: var(--serif); font-size: 32px; font-weight: 600; color: var(--terracotta); line-height: 1; }
+.stat-desc { font-size: 12px; color: var(--olive); margin-top: 4px; line-height: 1.4; }
+
+.article-wrap { max-width: var(--max-wide); margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+@media (max-width: 768px) { .article-wrap { grid-template-columns: 1fr; } }
+.article-body { min-width: 0; }
+.article-body h2 { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--near); margin: 40px 0 16px; letter-spacing: -0.01em; line-height: 1.3; }
+.article-body h3 { font-family: var(--sans); font-size: 15px; font-weight: 700; color: var(--near); margin: 28px 0 10px; letter-spacing: 0.02em; text-transform: uppercase; }
+.article-body p { margin-bottom: 18px; color: var(--charcoal); }
+.article-body a { color: var(--terracotta); text-decoration: underline; text-decoration-color: var(--cream); text-underline-offset: 3px; }
+.article-body a:hover { text-decoration-color: var(--terracotta); }
+.article-body ul, .article-body ol { padding-left: 20px; margin-bottom: 18px; }
+.article-body li { margin-bottom: 6px; color: var(--charcoal); }
+.article-body strong { font-weight: 600; color: var(--near); }
+.article-body hr { border: none; border-top: 1px solid var(--cream); margin: 36px 0; }
+
+.step { border: 1px solid var(--cream); border-radius: 12px; padding: 22px 24px; margin: 14px 0; background: white; display: grid; grid-template-columns: 48px 1fr; gap: 16px; }
+.step-num { font-family: var(--serif); font-size: 28px; font-weight: 600; color: var(--sand); line-height: 1; padding-top: 2px; }
+.step-content h3 { margin: 0 0 10px; font-size: 15px; font-weight: 700; color: var(--near); text-transform: none; letter-spacing: 0; }
+.step-content p { font-size: 14px; color: var(--olive); margin: 0; line-height: 1.65; }
+.step-content p + p { margin-top: 10px; }
+
+.result-card { border-radius: 10px; padding: 16px 18px; margin: 12px 0; }
+.result-card.before { background: var(--red-bg); border: 1px solid var(--red-bd); }
+.result-card.after { background: var(--green-bg); border: 1px solid var(--green-bd); }
+.result-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; }
+.result-card.before .result-label { color: var(--red-text); }
+.result-card.after .result-label { color: var(--green); }
+.result-card p { font-size: 14px; margin: 0; }
+
+.metric-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 24px 0; }
+@media (max-width: 500px) { .metric-row { grid-template-columns: 1fr; } }
+.metric { background: var(--parchment); border: 1px solid var(--cream); border-radius: 10px; padding: 18px 16px; }
+.metric-num { font-family: var(--serif); font-size: 28px; font-weight: 600; color: var(--terracotta); line-height: 1; }
+.metric-label { font-size: 12px; color: var(--olive); margin-top: 4px; }
+
+.faq-item { border-top: 1px solid var(--cream); padding: 20px 0; }
+.faq-q { font-size: 15px; font-weight: 600; color: var(--near); margin-bottom: 10px; }
+.faq-a { font-size: 14px; color: var(--olive); line-height: 1.65; }
+
+.cta-section { background: var(--near); padding: 64px 24px; text-align: center; }
+.cta-inner { max-width: 600px; margin: 0 auto; }
+.cta-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sand); margin-bottom: 16px; }
+.cta-title { font-family: var(--serif); font-size: clamp(24px, 3.5vw, 34px); font-weight: 600; color: var(--ivory); margin-bottom: 16px; line-height: 1.25; }
+.cta-body { font-size: 16px; color: rgba(250,250,247,0.65); margin-bottom: 32px; line-height: 1.6; }
+.cta-btn { display: inline-block; background: var(--terracotta); color: white; font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: opacity 0.15s; }
+.cta-btn:hover { opacity: 0.88; }
+.cta-note { font-size: 12px; color: rgba(250,250,247,0.4); margin-top: 14px; }
+
+.site-footer { background: var(--parchment); border-top: 1px solid var(--cream); padding: 32px 24px; }
+.footer-inner { max-width: var(--max-wide); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 12px; color: var(--stone); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 12px; color: var(--stone); text-decoration: none; }
+.footer-links a:hover { color: var(--terracotta); }
+
+.sidebar { position: sticky; top: 80px; }
+.sidebar-card { background: var(--parchment); border: 1px solid var(--cream); border-radius: 14px; padding: 24px 20px; margin-bottom: 16px; }
+.sidebar-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone); margin-bottom: 14px; }
+.sidebar-title { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--near); line-height: 1.3; margin-bottom: 10px; }
+.sidebar-body { font-size: 13px; color: var(--olive); line-height: 1.55; margin-bottom: 18px; }
+.sidebar-btn { display: block; background: var(--terracotta); color: white; font-size: 13px; font-weight: 600; padding: 11px 16px; border-radius: 7px; text-decoration: none; text-align: center; transition: opacity 0.15s; }
+.sidebar-btn:hover { opacity: 0.88; }
+.sidebar-related { font-size: 13px; color: var(--olive); }
+.sidebar-related a { color: var(--terracotta); text-decoration: none; display: block; margin-top: 10px; font-weight: 500; }
+.sidebar-related a:hover { text-decoration: underline; }
+@media (max-width: 768px) { .sidebar { position: static; } }
+
+.tool-pill { display: inline-block; font-size: 11px; font-weight: 600; background: var(--parchment); border: 1px solid var(--cream); border-radius: 20px; padding: 3px 10px; color: var(--olive); margin: 2px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/">
+      <img src="/logo.jpg" alt="AI Automation Studio">
+    </a>
+    <a class="header-cta" href="/call">Book a free audit</a>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="/">Home</a>
+  <span>/</span>
+  <a href="/#what-we-build">Case Studies</a>
+  <span>/</span>
+  <span style="color: var(--charcoal);">Bank Reconciliation Workflow</span>
+</div>
+
+<div class="article-hero">
+  <div>
+    <p class="hero-kicker">Case Study — Workflow Automation</p>
+    <h1 class="hero-title">We Reconciled 80,000 Bank Records Overnight. Here's the Exact Workflow.</h1>
+    <div class="hero-meta">
+      <span class="hero-meta-item">Boris Korol</span>
+      <span class="hero-meta-dot">·</span>
+      <span class="hero-meta-item">AI Automation Studio</span>
+      <span class="hero-meta-dot">·</span>
+      <span class="hero-meta-item">June 2026</span>
+    </div>
+    <p class="hero-summary">A UK accountancy practice needed to reconcile more than 80,000 bank records every month. The manual process took two full working days. We built an automation using Make.com and the Xero API. It now runs overnight.</p>
+    <p style="margin-top:14px; font-size:14px; color:var(--stone);">Tools used: <span class="tool-pill">Make.com</span> <span class="tool-pill">Xero API</span> <span class="tool-pill">Google Sheets</span></p>
+  </div>
+  <div class="stat-panel">
+    <p class="stat-panel-label">Results</p>
+    <div class="stat-row">
+      <div class="stat-num">80,000+</div>
+      <div class="stat-desc">bank records processed in a single overnight run</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-num">85%</div>
+      <div class="stat-desc">auto-reconciled without human review</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-num">2 days</div>
+      <div class="stat-desc">of manual work reduced to a morning exceptions review</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-num">&lt;2 wks</div>
+      <div class="stat-desc">complete build time — no custom code, no new software</div>
+    </div>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <article class="article-body">
+
+    <h2>The Problem with Manual Bank Reconciliation</h2>
+    <p>Bank reconciliation is one of the most time-consuming tasks in accountancy. For practices handling multiple clients, the volume multiplies fast. The firm we worked with had a specific challenge: a high volume of transactions across multiple accounts, all needing to be matched, categorised, and reconciled against bank statements before month-end reporting.</p>
+    <p>Their team was spending two full working days per month on this task. That is roughly 16 hours of skilled staff time on work that is repetitive, rule-based, and automatable. Manual reconciliation also carries real risk beyond the time cost — tired staff miss mismatches, small errors compound, and the closer you are to a deadline the less time there is to investigate discrepancies.</p>
+    <p>For UK accountancy practices, <a href="https://www.gov.uk/guidance/find-software-thats-compatible-with-making-tax-digital-for-vat" target="_blank" rel="noopener">Making Tax Digital (MTD)</a> is adding pressure to keep records cleaner and more current. The case for automation is straightforward: this is skilled work being consumed by a task software can handle.</p>
+
+    <hr>
+
+    <h2>The Workflow: Make.com + Xero API + Google Sheets</h2>
+    <p>The automation runs across three tools. No custom code. No enterprise software. The complete build took under two weeks.</p>
+
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Pull unreconciled transactions from Xero</h3>
+        <p>Make.com connects to the Xero API using OAuth 2.0. A scheduled scenario runs nightly and pulls all new bank transactions from the client's connected accounts. The Xero Bank Transactions endpoint returns each transaction with its date, amount, payee, reference, and status — filtered for <code style="font-size:13px; background:var(--parchment); padding:1px 5px; border-radius:3px;">UNRECONCILED</code> records only.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>Match transactions against the bank statement feed</h3>
+        <p>Make.com iterates over each unreconciled transaction and attempts to match it against open statement lines using three criteria: amount (exact match), date (within a three-day window), and payee reference (fuzzy match).</p>
+        <p>The first version used only amount and date matching — that produced a 60% auto-reconciliation rate. Adding the fuzzy payee reference check pushed it to 85%.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Auto-reconcile confirmed matches in Xero</h3>
+        <p>For transactions matched with high confidence, Make.com calls the Xero API to reconcile them automatically via the <code style="font-size:13px; background:var(--parchment); padding:1px 5px; border-radius:3px;">PUT BankTransactions</code> endpoint with <code style="font-size:13px; background:var(--parchment); padding:1px 5px; border-radius:3px;">IsReconciled: true</code>. For this client, approximately 85% of transactions — around 68,000 records — met the auto-reconcile threshold in a single overnight run.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <h3>Route exceptions to a Google Sheet for review</h3>
+        <p>Transactions that do not meet the matching threshold are written to a Google Sheet. Each row includes the transaction details, the closest match found, and the reason it was flagged: amount discrepancy, date gap, or missing payee reference. A member of staff reviews this sheet each morning — instead of working through 80,000 records manually, they are looking at an exceptions list already sorted by confidence score.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <h3>Log, summarise, and alert</h3>
+        <p>Each nightly run writes a summary to a second Google Sheet: total transactions processed, number auto-reconciled, number flagged, and any API errors. A Make.com email module sends this summary to the practice manager each morning. If the API returns an error or the match rate drops below a configured threshold, an alert fires to a Slack channel. Silent on success, alert on failure.</p>
+      </div>
+    </div>
+
+    <hr>
+
+    <h2>Results</h2>
+
+    <div class="result-card before">
+      <p class="result-label">Before</p>
+      <p>80,000 bank records per month. Two full working days of manual reconciliation. Two staff members blocked on repetitive matching work every month-end.</p>
+    </div>
+    <div class="result-card after">
+      <p class="result-label">After</p>
+      <p><strong>85% auto-reconciled</strong> without human review. Two days of manual work reduced to a morning exceptions review. Zero reconciliation errors attributed to the automation across the first three months of production use.</p>
+    </div>
+
+    <div class="metric-row">
+      <div class="metric">
+        <div class="metric-num">80,000+</div>
+        <div class="metric-label">records processed in one overnight run</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">85%</div>
+        <div class="metric-label">auto-reconciled — no human touch</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">2 days</div>
+        <div class="metric-label">manual work → morning review</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">0</div>
+        <div class="metric-label">automation errors in first 3 months</div>
+      </div>
+    </div>
+
+    <p>The practice did not change their Xero setup, switch accounting software, or hire additional staff. The automation sits on top of the systems they already use.</p>
+
+    <hr>
+
+    <h2>What This Means for Your Practice</h2>
+    <p>Not every practice has 80,000 records a month. The workflow scales down without any structural change. If your team is spending more than half a day a month on bank reconciliation, the pattern above applies. The tools are the same — Xero API, Make.com, and a spreadsheet for exceptions. A practice that already uses Xero and Google Workspace has everything needed to run this.</p>
+    <p>AI Automation Studio works with UK accountancy and audit practices on this type of workflow. Bank reconciliation is one of three core automations we build alongside MTD compliance processes and payroll bureau workflows. The approach is always the same: one workflow at a time, with measurable output before expanding scope.</p>
+
+    <hr>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">Does this work with all UK banks connected to Xero?</p>
+      <p class="faq-a">It works with any bank that provides a live feed to Xero — Barclays, HSBC, Lloyds, NatWest, Starling, and others. If the client's bank provides a statement feed in Xero, the automation can process those transactions.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">What happens if the Xero API goes down or changes?</p>
+      <p class="faq-a">Make.com handles API failures by retrying failed operations and logging errors. The nightly run flags any API issues in the morning summary email and fires a Slack alert. The practice can reconcile manually in Xero exactly as before — the automation is additive, it does not replace the underlying Xero workflow.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Where is client financial data stored?</p>
+      <p class="faq-a">The Google Sheet is owned by the practice and sits within their own Google Workspace. Make.com does not store transaction data beyond the duration of the scenario run. The Xero connection uses OAuth 2.0 — no credentials held in the automation. All data stays within systems the practice already controls.</p>
+    </div>
+
+    <hr>
+    <p style="font-size:13px; color: var(--stone);">Boris Korol is the founder of <a href="/">AI Automation Studio</a>, a London-based automation consultancy for UK accountancy and audit practices, specialising in bank reconciliation, MTD workflows, and payroll bureau automation. Connect on <a href="https://linkedin.com/in/boris-korol" target="_blank" rel="noopener">LinkedIn</a>.</p>
+
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <p class="sidebar-label">Book a free audit</p>
+      <p class="sidebar-title">See your ROI before you commit.</p>
+      <p class="sidebar-body">We map your top 3 manual processes, calculate the hours cost, and show you what automation would change — in 20 minutes.</p>
+      <a class="sidebar-btn" href="https://ai-automation.studio/call">Book Automation Snapshot</a>
+    </div>
+    <div class="sidebar-card">
+      <p class="sidebar-label">Related case study</p>
+      <div class="sidebar-related">
+        <p>See how we cleared an 18,000-transaction backlog using a four-layer AI matching pipeline — in 3 days.</p>
+        <a href="/case-studies/bank-reconciliation-backlog/">18,000 Transactions Cleared in 3 Days →</a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <p class="cta-kicker">Get started</p>
+    <h2 class="cta-title">If your team is still reconciling bank records manually, a short conversation is usually enough to establish what's possible.</h2>
+    <p class="cta-body">No pitch. No obligation. We look at one workflow, identify the opportunity, and give you a clear picture of what it would take to build it.</p>
+    <a class="cta-btn" href="https://ai-automation.studio/call">Book Automation Snapshot</a>
+    <p class="cta-note">No commitment. No follow-up pressure.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 AI Automation Studio Ltd. London, UK.</span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://linkedin.com/in/boris-korol" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

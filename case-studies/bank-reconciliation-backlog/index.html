@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>18,000 Unreconciled Transactions, Three Years of Backlog — AI Automation Studio</title>
+<meta name="description" content="A company arrived with 18,000 transactions unreconciled since 2022 across several banks. We built a four-layer AI matching pipeline. 3 days later, only 100 transactions needed human review.">
+<link rel="canonical" href="https://ai-automation.studio/case-studies/bank-reconciliation-backlog/">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivory:    #FAFAF7;
+  --parchment:#F3F2EE;
+  --cream:    #E5E4DE;
+  --sand:     #C8B89A;
+  --terracotta:#C0513A;
+  --near:     #0D0C0A;
+  --olive:    #5C5B55;
+  --stone:    #8C8B84;
+  --charcoal: #1C1B18;
+  --green:    #1A7A40;
+  --green-bg: #F0FFF4;
+  --green-bd: #BBDFCA;
+  --red-bg:   #FFF5F5;
+  --red-bd:   #F5C6C0;
+  --red-text: #9B3A2F;
+  --serif:    'Fraunces', Georgia, serif;
+  --sans:     'Inter', -apple-system, system-ui, sans-serif;
+  --max:      760px;
+  --max-wide: 1040px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--ivory); color: var(--charcoal); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+/* Header */
+.site-header { border-bottom: 1px solid var(--cream); background: rgba(250,250,247,0.92); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 50; }
+.header-inner { max-width: var(--max-wide); margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo img { height: 36px; width: auto; }
+.logo-text { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--olive); }
+.header-cta { font-size: 13px; font-weight: 600; color: var(--terracotta); text-decoration: none; border: 1px solid var(--terracotta); border-radius: 6px; padding: 6px 14px; transition: background 0.15s, color 0.15s; }
+.header-cta:hover { background: var(--terracotta); color: white; }
+
+/* Breadcrumb */
+.breadcrumb { max-width: var(--max-wide); margin: 0 auto; padding: 16px 24px 0; }
+.breadcrumb a { font-size: 12px; color: var(--stone); text-decoration: none; }
+.breadcrumb a:hover { color: var(--terracotta); }
+.breadcrumb span { font-size: 12px; color: var(--stone); margin: 0 6px; }
+
+/* Hero */
+.article-hero { max-width: var(--max-wide); margin: 0 auto; padding: 40px 24px 48px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+@media (max-width: 768px) { .article-hero { grid-template-columns: 1fr; } }
+.hero-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 16px; }
+.hero-title { font-family: var(--serif); font-size: clamp(26px, 4vw, 40px); font-weight: 600; color: var(--near); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 20px; }
+.hero-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+.hero-meta-item { font-size: 12px; color: var(--stone); }
+.hero-meta-dot { color: var(--cream); }
+.hero-summary { font-size: 17px; color: var(--olive); line-height: 1.65; }
+
+/* Stat card panel */
+.stat-panel { background: var(--parchment); border: 1px solid var(--cream); border-radius: 16px; padding: 28px 24px; }
+.stat-panel-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone); margin-bottom: 20px; }
+.stat-row { padding: 14px 0; border-top: 1px solid var(--cream); }
+.stat-row:first-of-type { border-top: none; padding-top: 0; }
+.stat-num { font-family: var(--serif); font-size: 32px; font-weight: 600; color: var(--terracotta); line-height: 1; }
+.stat-desc { font-size: 12px; color: var(--olive); margin-top: 4px; line-height: 1.4; }
+
+/* Article body */
+.article-wrap { max-width: var(--max-wide); margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+@media (max-width: 768px) { .article-wrap { grid-template-columns: 1fr; } }
+.article-body { min-width: 0; }
+.article-body h2 { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--near); margin: 40px 0 16px; letter-spacing: -0.01em; line-height: 1.3; }
+.article-body h3 { font-family: var(--sans); font-size: 16px; font-weight: 700; color: var(--near); margin: 28px 0 12px; letter-spacing: 0.01em; }
+.article-body p { margin-bottom: 18px; color: var(--charcoal); }
+.article-body a { color: var(--terracotta); text-decoration: underline; text-decoration-color: var(--cream); text-underline-offset: 3px; }
+.article-body a:hover { text-decoration-color: var(--terracotta); }
+.article-body ul, .article-body ol { padding-left: 20px; margin-bottom: 18px; }
+.article-body li { margin-bottom: 6px; color: var(--charcoal); }
+.article-body strong { font-weight: 600; color: var(--near); }
+.article-body hr { border: none; border-top: 1px solid var(--cream); margin: 36px 0; }
+
+/* Table */
+.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: 10px; border: 1px solid var(--cream); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.data-table th { background: var(--parchment); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--olive); padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--cream); }
+.data-table td { padding: 11px 14px; border-bottom: 1px solid var(--cream); color: var(--charcoal); vertical-align: top; }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: var(--parchment)/50; }
+
+/* Result pills */
+.result-card { border-radius: 10px; padding: 16px 18px; margin: 12px 0; }
+.result-card.before { background: var(--red-bg); border: 1px solid var(--red-bd); }
+.result-card.after { background: var(--green-bg); border: 1px solid var(--green-bd); }
+.result-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; }
+.result-card.before .result-label { color: var(--red-text); }
+.result-card.after .result-label { color: var(--green); }
+.result-card p { font-size: 14px; margin: 0; }
+
+/* Methodology layer */
+.layer { border: 1px solid var(--cream); border-radius: 10px; padding: 20px 22px; margin: 12px 0; background: white; }
+.layer-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.layer-num { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--sand); line-height: 1; }
+.layer-title { font-size: 15px; font-weight: 700; color: var(--near); }
+.layer p { font-size: 14px; color: var(--olive); margin: 0; }
+
+/* FAQ */
+.faq-item { border-top: 1px solid var(--cream); padding: 20px 0; }
+.faq-q { font-size: 15px; font-weight: 600; color: var(--near); margin-bottom: 10px; }
+.faq-a { font-size: 14px; color: var(--olive); line-height: 1.65; }
+
+/* CTA section */
+.cta-section { background: var(--near); padding: 64px 24px; text-align: center; }
+.cta-inner { max-width: 600px; margin: 0 auto; }
+.cta-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sand); margin-bottom: 16px; }
+.cta-title { font-family: var(--serif); font-size: clamp(24px, 3.5vw, 34px); font-weight: 600; color: var(--ivory); margin-bottom: 16px; line-height: 1.25; }
+.cta-body { font-size: 16px; color: rgba(250,250,247,0.65); margin-bottom: 32px; line-height: 1.6; }
+.cta-btn { display: inline-block; background: var(--terracotta); color: white; font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: opacity 0.15s; }
+.cta-btn:hover { opacity: 0.88; }
+.cta-note { font-size: 12px; color: rgba(250,250,247,0.4); margin-top: 14px; }
+
+/* Footer */
+.site-footer { background: var(--parchment); border-top: 1px solid var(--cream); padding: 32px 24px; }
+.footer-inner { max-width: var(--max-wide); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 12px; color: var(--stone); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 12px; color: var(--stone); text-decoration: none; }
+.footer-links a:hover { color: var(--terracotta); }
+
+/* Sticky sidebar */
+.sidebar { position: sticky; top: 80px; }
+.sidebar-card { background: var(--parchment); border: 1px solid var(--cream); border-radius: 14px; padding: 24px 20px; margin-bottom: 16px; }
+.sidebar-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone); margin-bottom: 14px; }
+.sidebar-title { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--near); line-height: 1.3; margin-bottom: 10px; }
+.sidebar-body { font-size: 13px; color: var(--olive); line-height: 1.55; margin-bottom: 18px; }
+.sidebar-btn { display: block; background: var(--terracotta); color: white; font-size: 13px; font-weight: 600; padding: 11px 16px; border-radius: 7px; text-decoration: none; text-align: center; transition: opacity 0.15s; }
+.sidebar-btn:hover { opacity: 0.88; }
+.sidebar-related { font-size: 13px; color: var(--olive); }
+.sidebar-related a { color: var(--terracotta); text-decoration: none; display: block; margin-top: 10px; font-weight: 500; }
+.sidebar-related a:hover { text-decoration: underline; }
+
+@media (max-width: 768px) { .sidebar { position: static; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/">
+      <img src="/logo.jpg" alt="AI Automation Studio">
+    </a>
+    <a class="header-cta" href="/call">Book a free audit</a>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="/">Home</a>
+  <span>/</span>
+  <a href="/#what-we-build">Case Studies</a>
+  <span>/</span>
+  <span style="color: var(--charcoal);">Bank Reconciliation Backlog</span>
+</div>
+
+<div class="article-hero">
+  <div>
+    <p class="hero-kicker">Case Study — Bank Reconciliation</p>
+    <h1 class="hero-title">18,000 Unreconciled Transactions, Three Years of Backlog. Here's How AI Cleared It in 3 Days.</h1>
+    <div class="hero-meta">
+      <span class="hero-meta-item">Boris Korol</span>
+      <span class="hero-meta-dot">·</span>
+      <span class="hero-meta-item">AI Automation Studio</span>
+      <span class="hero-meta-dot">·</span>
+      <span class="hero-meta-item">June 2026</span>
+    </div>
+    <p class="hero-summary">A company arrived with 18,000 transactions unreconciled since 2022 across several bank accounts. We built a four-layer AI matching pipeline. 3 days from receiving the first file to final output — only 100 transactions remained for a human accountant to review.</p>
+  </div>
+  <div class="stat-panel">
+    <p class="stat-panel-label">Results</p>
+    <div class="stat-row">
+      <div class="stat-num">18,000</div>
+      <div class="stat-desc">transactions with no confirmed reconciliation status — starting position</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-num">3 days</div>
+      <div class="stat-desc">from raw file receipt to final output</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-num">100</div>
+      <div class="stat-desc">transactions flagged for human review — down from 18,000</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-num">4</div>
+      <div class="stat-desc">matching layers: exact → grouped → recipient → AI web search</div>
+    </div>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <article class="article-body">
+
+    <h2>The Scale of the Problem</h2>
+    <p>The company had two systems that had drifted apart over three years. Their banking app held the authoritative record of every payment made and received. Their internal accounting system held a parallel set of manually entered records, typed in by staff after each transaction. The intention was for the two to match. In practice, by the time we were brought in, 18,000 entries across multiple bank accounts had no confirmed match between the two systems.</p>
+    <p>This is not a rare situation. Manual double-entry creates drift. Staff change. Processes slip. The problem compounds silently until someone needs to produce audited accounts and the reconciliation has to happen all at once.</p>
+    <p>Three years of backlog at 18,000 transactions is a large but not extreme example of what happens when reconciliation is deferred. The <a href="https://www.icaew.com" target="_blank" rel="noopener">ICAEW</a> requires member firms to maintain accurate and complete accounting records — a deferred reconciliation backlog of this scale puts that obligation at risk.</p>
+
+    <hr>
+
+    <h2>Why Simple Matching Was Not Enough</h2>
+    <p>The obvious first step is exact matching: find every transaction where the date and amount in the banking system match the date and amount in the internal system. This works well for straightforward cases and eliminates the bulk of the volume.</p>
+    <p>After running exact matching across all 18,000 transactions, we were left with approximately 3,000 unmatched records.</p>
+    <p>Three thousand unmatched transactions from 18,000 is a significant problem. Each one could indicate an error, a duplicate, a misposting, or a legitimate discrepancy. Standard reconciliation tooling stops here and hands everything to a human reviewer. We did not.</p>
+
+    <hr>
+
+    <h2>The Four-Layer Approach</h2>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>Method</th>
+            <th>Input</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Exact match</td>
+            <td>Date + amount</td>
+            <td>Confirmed matches; ~3,000 unresolved</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Grouped match</td>
+            <td>Amount sets across systems</td>
+            <td>Many-to-one and one-to-many resolved</td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>Recipient analysis</td>
+            <td>Sender/recipient name fields</td>
+            <td>Mismatched-name transactions flagged</td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td>AI web search</td>
+            <td>~800 flagged transactions</td>
+            <td>~100 genuine discrepancies identified</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="layer">
+      <div class="layer-header">
+        <span class="layer-num">01</span>
+        <span class="layer-title">Exact one-to-one matching</span>
+      </div>
+      <p>Date and amount match exactly across both systems. This cleared the majority of transactions and confirmed which records were straightforwardly aligned. Output: a set of confirmed matches and a set of unresolved records.</p>
+    </div>
+
+    <div class="layer">
+      <div class="layer-header">
+        <span class="layer-num">02</span>
+        <span class="layer-title">Approximate and grouped matching</span>
+      </div>
+      <p>Not every transaction maps to a single counterpart. Salary payments may appear as one transaction in the banking system and as several component entries in the internal system. We built a matching step that compared each record against sets of records in the other system, looking for groupings where combined amounts aligned within a defined threshold. This layer identified many-to-one and one-to-many relationships that exact matching cannot detect.</p>
+    </div>
+
+    <div class="layer">
+      <div class="layer-header">
+        <span class="layer-num">03</span>
+        <span class="layer-title">Recipient and sender analysis</span>
+      </div>
+      <p>With the remaining unmatched transactions, we ran a comparison of the named sender and recipient fields. We flagged every case where the sender or recipient name in one system did not match the corresponding name in the other. The banking record was treated as the source of truth.</p>
+    </div>
+
+    <div class="layer">
+      <div class="layer-header">
+        <span class="layer-num">04</span>
+        <span class="layer-title">AI web search for company identity</span>
+      </div>
+      <p>Approximately 800 transactions remained where names appeared to differ but might represent the same counterparty. We built an AI agent that ran a web search for each transaction, searching both names to determine whether they referred to the same legal entity.</p>
+      <p style="margin-top:10px;">One example: the banking system recorded a payment to <strong>East Eagle Ltd</strong>. The internal system recorded the same transaction as <strong>South East London Ltd</strong>. To a human reviewer, these look like two different companies. They are the same nightclub — East Eagle is the trading name; South East London Ltd is the registered legal entity, verifiable via <a href="https://find-and-update.company-information.service.gov.uk" target="_blank" rel="noopener">Companies House</a>. The AI found approximately 100 more cases of this pattern.</p>
+    </div>
+
+    <hr>
+
+    <h2>Results</h2>
+
+    <div class="result-card before">
+      <p class="result-label">Before</p>
+      <p>18,000 transactions with no confirmed reconciliation status. Three-year backlog. Weeks of manual accountant time projected to resolve.</p>
+    </div>
+    <div class="result-card after">
+      <p class="result-label">After</p>
+      <p><strong>100 transactions</strong> remained unresolved and required human review. Total time from file receipt to output: <strong>3 days</strong>. A repeat batch of similar volume would take a few hours — the agent understands the matching logic and company-name disambiguation approach.</p>
+    </div>
+
+    <p>The reduction from 18,000 unknown-status transactions to 100 items for human review meant the accountants could do their work in a fraction of the time originally projected. They received a prioritised list rather than a raw data problem.</p>
+
+    <hr>
+
+    <h2>What This Pattern Looks Like Elsewhere</h2>
+    <p>Transaction reconciliation backlogs are not unique to the type of company described above. The same pattern appears in any organisation running parallel record-keeping across systems that were never fully integrated. The four-layer structure — exact matching through grouped matching, recipient analysis, and identity disambiguation — transfers across most reconciliation problems we encounter.</p>
+
+    <hr>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">How did you access the data from both systems?</p>
+      <p class="faq-a">The client provided exports from both systems in structured formats. We did not require direct system access during the reconciliation phase. Data is processed within the client's jurisdiction — UK or EU — in compliance with UK GDPR. For ongoing automation rather than a one-off project, we build live connections between systems.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">What happened to the 100 transactions that needed human review?</p>
+      <p class="faq-a">Those records were delivered to the client's accountants with full context: what matched, what did not, and the closest candidate match found. The accountants made the final determination. The AI did not make decisions about transactions it could not confidently match.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Can this work if one of the systems is not a standard accounting package?</p>
+      <p class="faq-a">Yes. The approach works on any structured data export — bespoke internal systems, legacy databases, and ERP exports. The matching logic is built around the data structure of the specific files provided, not around a fixed integration with a named software platform.</p>
+    </div>
+
+    <hr>
+    <p style="font-size:13px; color: var(--stone);">Boris Korol is the founder of <a href="/">AI Automation Studio</a>, a London-based automation consultancy working with accountancy practices, audit firms, and finance teams on transaction reconciliation, workflow automation, and AI agent development. Connect on <a href="https://linkedin.com/in/boris-korol" target="_blank" rel="noopener">LinkedIn</a>.</p>
+
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <p class="sidebar-label">Book a free audit</p>
+      <p class="sidebar-title">See your ROI before you commit.</p>
+      <p class="sidebar-body">We map your top 3 manual processes, calculate the hours cost, and show you what automation would change — in 20 minutes.</p>
+      <a class="sidebar-btn" href="https://ai-automation.studio/call">Book Automation Snapshot</a>
+    </div>
+    <div class="sidebar-card">
+      <p class="sidebar-label">Related case study</p>
+      <div class="sidebar-related">
+        <p>See how a UK accountancy practice automated 80,000 bank records per month using Make.com and the Xero API.</p>
+        <a href="/case-studies/bank-reconciliation-workflow/">80,000 Records Reconciled Overnight →</a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <p class="cta-kicker">Get started</p>
+    <h2 class="cta-title">If your team has a reconciliation backlog, a 20-minute call is usually enough to establish what's possible.</h2>
+    <p class="cta-body">No pitch. No obligation. We look at the data sources and the volume, and give you a realistic picture of what an automated approach would involve.</p>
+    <a class="cta-btn" href="https://ai-automation.studio/call">Book Automation Snapshot</a>
+    <p class="cta-note">No commitment. No follow-up pressure.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 AI Automation Studio Ltd. London, UK.</span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://linkedin.com/in/boris-korol" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
