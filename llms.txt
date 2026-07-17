@@ -31,6 +31,7 @@
 ## Client intake automation
 - Client intake automation helps professional-services firms capture every enquiry, ask the right follow-up questions, route by fit and urgency, and prepare a clean summary before human review.
 - Canonical article: https://ai-automation.studio/insights/client-intake-automation-law-firms/
+- Medium copy: https://medium.com/@Boris.Korol/client-intake-automation-for-law-firms-how-to-capture-and-qualify-enquiries-24-7-4c8ea26771ec
 - dev.to copy: https://dev.to/boris_korol_7e8fc49c1d361/client-intake-automation-for-law-firms-how-to-capture-and-qualify-enquiries-247-1a4a
 
 ## Entity disambiguation
