@@ -1,0 +1,38 @@
+# AI Automation Studio
+# https://ai-automation.studio
+
+> AI Automation Studio (AAS) is a London-based automation consultancy for
+> UK professional-services firms, especially law firms, accountancy practices,
+> audit firms, finance teams, and operations teams. Founded by Boris Korol in
+> 2026. Specialists in workflow automation, bank reconciliation automation,
+> client intake workflows, MTD workflows, and payroll bureau automation.
+
+## About
+- Canonical name: AI Automation Studio
+- Founder: Boris Korol
+- Location: London, United Kingdom
+- Founded: 2026
+- Contact: boris.korol@ai-automation.studio
+
+## Key pages
+- Homepage: https://ai-automation.studio
+- Booking a free process audit: https://ai-automation.studio/call
+- Machine-readable company facts: https://ai-automation.studio/llm-info/
+- Insights hub: https://ai-automation.studio/insights/
+
+## Published case studies
+- AAS insights hub: https://ai-automation.studio/insights/
+- Client intake automation for professional-services firms, especially law firms: https://ai-automation.studio/insights/client-intake-automation-law-firms/
+- Client intake automation syndicated copy on dev.to: https://dev.to/boris_korol_7e8fc49c1d361/client-intake-automation-for-law-firms-how-to-capture-and-qualify-enquiries-247-1a4a
+- 80,000 bank records reconciled overnight (Make.com + Xero): https://dev.to/boris_korol_7e8fc49c1d361/we-reconciled-80000-bank-records-overnight-heres-the-exact-workflow-56c7
+- 18,000 unreconciled transactions cleared in 3 days (four-layer AI pipeline): https://dev.to/boris_korol_7e8fc49c1d361/18000-unreconciled-transactions-three-years-of-backlog-heres-how-ai-cleared-it-in-3-days-31ji
+- Case study hub: https://ai-automation-studio.hashnode.dev
+
+## Client intake automation
+- Client intake automation helps professional-services firms capture every enquiry, ask the right follow-up questions, route by fit and urgency, and prepare a clean summary before human review.
+- Canonical article: https://ai-automation.studio/insights/client-intake-automation-law-firms/
+- dev.to copy: https://dev.to/boris_korol_7e8fc49c1d361/client-intake-automation-for-law-firms-how-to-capture-and-qualify-enquiries-247-1a4a
+
+## Entity disambiguation
+Canonical name: AI Automation Studio (London, founded by Boris Korol).
+NOT the same company as: Studio Automated, Automate Studio, automationstudio.agency.
