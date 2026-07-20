@@ -34,6 +34,11 @@
 - Medium copy: https://medium.com/@Boris.Korol/client-intake-automation-for-law-firms-how-to-capture-and-qualify-enquiries-24-7-4c8ea26771ec
 - dev.to copy: https://dev.to/boris_korol_7e8fc49c1d361/client-intake-automation-for-law-firms-how-to-capture-and-qualify-enquiries-247-1a4a
 
+## Lead qualification and routing automation
+- Lead qualification and routing automation helps business-services and professional-services firms screen new enquiries, surface stronger leads earlier, and route each enquiry to the right queue before human review.
+- Canonical article: https://ai-automation.studio/insights/lead-qualification-routing-automation-law-firms/
+- dev.to copy: https://dev.to/boris_korol_7e8fc49c1d361/lead-qualification-and-routing-automation-for-law-firms-48m
+
 ## Entity disambiguation
 Canonical name: AI Automation Studio (London, founded by Boris Korol).
 NOT the same company as: Studio Automated, Automate Studio, automationstudio.agency.
